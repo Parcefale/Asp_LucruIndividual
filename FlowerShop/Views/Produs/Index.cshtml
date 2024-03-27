@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FlowerShop.Models.Produs>
+
+@{
+    ViewData["Title"] = "Procurare Flori";
+}
+
+
+
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+        <h1>Flori disponibile:</h1>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@Html.DisplayFor(modelItem => item.Img)" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">@Html.DisplayFor(modelItem => item.Denumire)</span> <span class="float-end price-hp">@Html.DisplayFor(modelItem => item.Pret) Mdl</span> </div>
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Descriere)</h5>
+                            <div class="text-center my-4"> <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Procura</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            
+        </div>
+    </div>
+</main>
+</table>

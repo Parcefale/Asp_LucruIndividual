@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FlowerShop.Models.User>
+
+@{
+    ViewData["Title"] = "Utilizatr";
+}
+
+<h1>Lista Utilizator</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nume
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Parola
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editare</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Datalii</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Stergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
